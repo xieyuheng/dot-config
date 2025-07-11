@@ -6,6 +6,7 @@
 ⊑ -- [domain theory] less defined, less informative
 ∈ -- [set theory] in, belong to, member of
 ⊆ -- [set theory] inclusion
+⊂ -- [set theory] proper inclusion 
 ∅ -- [set theory] empty set
 ∪ -- [set theory] union
 ∩ -- [set theory] intersection
