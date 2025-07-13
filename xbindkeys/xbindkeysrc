@@ -3,7 +3,7 @@
 "emacsclient -c -e '(eshell t)'"
   Shift+Alt + x
 
-"xfce4-terminal --working-directory $(xcwd) --hide-menubar"
+"urxvt -cd $(xcwd)"
   Shift+Alt + Return
 
 # "rofi -font 'unifont 36' -show run"
