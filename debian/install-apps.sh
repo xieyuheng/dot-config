@@ -3,7 +3,8 @@ apt install \
     rsync linux-headers-amd64 zfsutils-linux \
     git tig nodejs npm \
     mpv vlc ffmpeg i3 i3status tree wget \
-    alacritty xfce4-terminal \
+    tlp \
+    alacritty rxvt-unicode \
     clang valgrind cloc info \
     libx11-dev libsdl2-dev \
     proxychains4 vim zsh dkms ncdu \
