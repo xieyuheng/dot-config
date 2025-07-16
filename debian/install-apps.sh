@@ -9,7 +9,7 @@ sudo apt install \
     libx11-dev libsdl2-dev \
     proxychains4 vim zsh dkms ncdu \
     unifont fonts-noto fonts-linuxlibertine \
-    fastfetch htop btop \
+    fastfetch htop btop gnome-power-manager \
     rofi feh scrot xbindkeys xcwd \
     flameshot network-manager-applet cbatticon \
     apt-file xclip light \
