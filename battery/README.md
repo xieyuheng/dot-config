@@ -39,7 +39,9 @@ $ gnome-power-statistics
 
 - [项目主页](https://linrunner.de/tlp)
 
-查看电池情况：
+tlp 的 daemon 可以优化电池使用。
+
+tlp 的命令行可以查看电池情况：
 
 ```bash
 $ sudo tlp-stat -b
