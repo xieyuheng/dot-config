@@ -32,7 +32,7 @@ Battery 0: design capacity 3615 mAh, last full capacity 2372 mAh = 65%
 安装：
 
 ```bash
-$ apt install gnome-power-manager
+$ sudo apt install gnome-power-manager
 ```
 
 看耗电历史的统计图：
