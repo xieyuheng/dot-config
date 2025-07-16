@@ -1,4 +1,4 @@
-apt install \
+sudo apt install \
     fish starship emacs ranger \
     rsync linux-headers-amd64 zfsutils-linux \
     git tig nodejs npm \
