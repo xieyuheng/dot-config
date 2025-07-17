@@ -4,23 +4,24 @@ function fish_prompt
   printf '\n'
   printf '  '
 
-  set_color $fish_color_normal
-  printf '%s@%s %s' (whoami) (hostname) (pwd)
+  printf '%s %s' (prompt_login) (pwd)
 
   set_color $fish_color_operator
   printf '%s' (fish_vcs_prompt)
 
   if test $last_status -ne 0
-    set_color $fish_color_error --bold
+    set_color $fish_color_error
     printf ' [%s]' $last_status
   end
 
-  set_color $fish_color_normal
   printf '\n'
 
+  set_color $fish_color_operator
   if fish_is_root_user
     printf '# '
   else
     printf '$ '
   end
+
+  set_color $fish_color_normal
 end
