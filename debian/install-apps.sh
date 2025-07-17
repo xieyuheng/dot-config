@@ -1,5 +1,5 @@
 sudo apt install \
-    fish emacs ranger \
+    fish fzf emacs ranger \
     rsync linux-headers-amd64 zfsutils-linux \
     git tig nodejs npm \
     mpv vlc ffmpeg i3 i3status tree wget \
