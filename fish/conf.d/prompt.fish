@@ -8,7 +8,7 @@ function fish_prompt
   printf '%s@%s %s' (whoami) (hostname) (pwd)
 
   set_color $fish_color_operator
-  printf '%s' (__fish_git_prompt)
+  printf '%s' (fish_vcs_prompt)
 
   if test $last_status -ne 0
     set_color $fish_color_error --bold
