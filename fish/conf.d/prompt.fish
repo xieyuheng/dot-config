@@ -13,6 +13,3 @@
 #   set_color $fish_color_normal
 #   printf '\n\n'
 # end
-
-# https://github.com/starship/starship
-starship init fish | source
