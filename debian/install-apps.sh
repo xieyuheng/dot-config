@@ -14,7 +14,6 @@ sudo apt install \
     flameshot network-manager-applet cbatticon \
     apt-file xclip light \
     ugrep silversearcher-ag \
-    okular okular-extra-backends \
     zathura zathura-djvu zathura-pdf-poppler zathura-ps \
     mupdf djview4 calibre \
     stardict goldendict \
