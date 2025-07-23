@@ -1,6 +1,6 @@
 sudo apt install \
     fish fzf emacs ranger tlp \
-    rsync linux-headers-amd64 zfsutils-linux \
+    rsync linux-headers-amd64 \
     git tig nodejs npm \
     mpv ffmpeg i3 i3status tree wget \
     rxvt-unicode \
