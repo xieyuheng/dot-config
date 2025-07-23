@@ -41,11 +41,15 @@ URxvt.scrollTtyOutput: false
 URxvt.scrollWithBuffer: false
 URxvt.depth: 32
 URxvt.iso14755: false
-URxvt.keysym.C-equal: font-size:increase
-URxvt.keysym.C-minus: font-size:decrease
+
 URxvt.keysym.A-p: command:\033]720;3\007
 URxvt.keysym.A-n: command:\033]721;3\007
 URxvt.perl-lib: /home/xyh/.config/urxvt
-URxvt.perl-ext-common: default,keyboard-select
+URxvt.perl-ext-common: default,keyboard-select,resize-font
 URxvt.keysym.A-Escape: perl:keyboard-select:activate
 URxvt.keyboard-select.clipboard: true
+! URxvt.keysym.C-equal: font-size:increase
+! URxvt.keysym.C-minus: font-size:decrease
+URxvt.keysym.C-minus: resize-font:smaller
+URxvt.keysym.C-equal: resize-font:bigger
+URxvt.keysym.C-question:  resize-font:show
