@@ -1,5 +1,5 @@
 sudo xbps-install \
-    rsync fish-shell emacs-gtk3 ranger zfs xz \
+    rsync fish-shell emacs-gtk3 ranger xz \
     git tig nodejs \
     mpv ffmpeg i3 i3status tree wget curl \
     fzf rxvt-unicode rxvt-unicode-terminfo urxvt-perls urxvt-bidi \
