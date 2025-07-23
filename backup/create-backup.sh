@@ -18,7 +18,7 @@ copy  \
     .uxn                  \
     .vscode               \
     .wallpapers           \
-    .xbindkeysrc.scm      \
+    .xbindkeysrc          \
     .xinitrc              \
     .xmodmap              \
     .Xresources           \
