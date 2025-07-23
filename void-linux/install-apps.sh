@@ -2,7 +2,7 @@ sudo xbps-install \
     rsync fish-shell emacs-gtk3 ranger zfs xz \
     git tig nodejs \
     mpv ffmpeg i3 i3status tree wget curl \
-    alacritty \
+    fzf rxvt-unicode rxvt-unicode-terminfo urxvt-perls urxvt-bidi \
     clang valgrind cloc gdb libsanitizer libsanitizer-devel \
     libX11-devel SDL2-devel \
     proxychains-ng vim zsh ncdu \
