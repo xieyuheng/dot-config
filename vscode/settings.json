@@ -1,13 +1,10 @@
 {
   "update.mode": "none",
   "editor.fontFamily": "unifont",
-  // "editor.fontFamily": "Fira Code",
   "editor.fontSize": 19,
   "editor.fontWeight": "400",
   "editor.formatOnSave": true,
   "explorer.confirmDelete": false,
-  "workbench.iconTheme": "simple-icons",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "window.titleBarStyle": "custom",
   "window.customMenuBarAltFocus": false,
   "typescript.preferences.importModuleSpecifier": "relative",
