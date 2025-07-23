@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+copy  \
+    .config               \
+    .emacs                \
+    .emacs.d              \
+    .fonts                \
+    .fonts.conf           \
+    .gitconfig            \
+    .goldendict           \
+    .gtkrc-2.0            \
+    .i3status.conf        \
+    .local                \
+    .npmrc                \
+    .proxychains          \
+    .ssh                  \
+    .stardict             \
+    .uxn                  \
+    .vscode               \
+    .wallpapers           \
+    .xbindkeysrc.scm      \
+    .xinitrc              \
+    .xmodmap              \
+    .Xresources           \
+    app                   \
+    assets                \
+    backup                \
+    bin                   \
+    desktop               \
+    downloads             \
+    links                 \
+    media                 \
+    play                  \
+    projects              \
+    screenshots           \
+    study                 \
+    todo                  \
+    work                  \
+    $1
