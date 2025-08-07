@@ -10,3 +10,8 @@
 ```
 /swapfile none swap defaults 0 0
 ```
+
+```
+# swapoff /swapfile
+# rm -f /swapfile
+```
