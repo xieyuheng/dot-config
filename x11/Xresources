@@ -45,7 +45,8 @@ URxvt.iso14755: false
 URxvt.keysym.A-p: command:\033]720;3\007
 URxvt.keysym.A-n: command:\033]721;3\007
 URxvt.perl-lib: /home/xyh/.config/urxvt
-URxvt.perl-ext-common: default,keyboard-select,resize-font
+URxvt.perl-ext-common: default,keyboard-select,resize-font,-confirm-paste
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.A-Escape: perl:keyboard-select:activate
 URxvt.keyboard-select.clipboard: true
 ! URxvt.keysym.C-equal: font-size:increase
