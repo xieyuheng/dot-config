@@ -18,6 +18,8 @@ sudo xbps-install \
     amber onefetch \
     xorg xorg-fonts \
     alsa-utils \
+    pipewire wireplumber libspa-bluetooth alsa-pipewire helvum \
+    pulseaudio-utils ncpamixer pavucontrol \
     chromium firefox \
     fcitx5 fcitx5-chinese-addons fcitx5-cloudpinyin fcitx5-configtool \
     fcitx5-gtk \
