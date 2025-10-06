@@ -7,3 +7,4 @@ set scroll-step 100
 set recolor true
 set adjust-open width
 map <C-t> feedkeys ":exec zathura $FILE -P $PAGE <Return>"
+set guioptions "scv"
