@@ -8,7 +8,7 @@
   "editor.guides.indentation": false,
   "terminal.integrated.fontFamily": "unifont",
   "terminal.integrated.fontSize": 20,
-  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.defaultProfile.windows": "PowerShell 7",
   "explorer.confirmDelete": false,
   "window.titleBarStyle": "custom",
   "window.customMenuBarAltFocus": false,
