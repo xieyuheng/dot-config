@@ -1,0 +1,10 @@
+basdp.language-gas-x86
+fabiospampinato.vscode-monokai-night
+haruhi-s.sexp
+jaycetyle.vscode-gnu-global
+mattn.lisp
+pixelbyte-studios.pixelbyte-love2d
+sashaweiss.block-travel
+sjhuangx.vscode-scheme
+sumneko.lua
+vscodeemacs.emacs
