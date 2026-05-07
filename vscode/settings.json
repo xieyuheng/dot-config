@@ -1,9 +1,14 @@
 {
   "update.mode": "none",
   "editor.fontFamily": "unifont",
-  "editor.fontSize": 19,
-  "editor.fontWeight": "400",
+  // "editor.fontFamily": "霞鹜文楷等宽",
+  "editor.fontSize": 20,
+  // "editor.fontWeight": "400",
   "editor.formatOnSave": true,
+  "editor.guides.indentation": false,
+  "terminal.integrated.fontFamily": "unifont",
+  "terminal.integrated.fontSize": 20,
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
   "explorer.confirmDelete": false,
   "window.titleBarStyle": "custom",
   "window.customMenuBarAltFocus": false,
@@ -15,9 +20,7 @@
   "editor.fontLigatures": true,
   "workbench.editor.splitInGroupLayout": "vertical",
   "workbench.colorTheme": "Default High Contrast",
-  "window.menuBarVisibility": "toggle",
-  "terminal.integrated.fontFamily": "monospace",
-  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "window.menuBarVisibility": "compact",
   "git.openRepositoryInParentFolders": "never",
   "extensions.ignoreRecommendations": true,
   "terminal.integrated.inheritEnv": false,
@@ -25,5 +28,8 @@
   "git.confirmSync": false,
   "git.autofetch": true,
   "git.enableSmartCommit": true,
-  "chat.commandCenter.enabled": false
+  "chat.commandCenter.enabled": false,
+  "files.associations": {
+    "*.lisp": "scheme"
+  }
 }
