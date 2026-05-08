@@ -1,20 +1,17 @@
 {
   "update.mode": "none",
   "editor.fontFamily": "unifont",
-  // "editor.fontFamily": "霞鹜文楷等宽",
   "editor.fontSize": 20,
-  // "editor.fontWeight": "400",
   "editor.formatOnSave": true,
   "editor.guides.indentation": false,
   "terminal.integrated.fontFamily": "unifont",
   "terminal.integrated.fontSize": 20,
-  "terminal.integrated.defaultProfile.windows": "PowerShell 7",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
   "explorer.confirmDelete": false,
   "window.titleBarStyle": "custom",
   "window.customMenuBarAltFocus": false,
-  "typescript.preferences.importModuleSpecifier": "relative",
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "javascript.updateImportsOnFileMove.enabled": "always",
+  "js/ts.preferences.importModuleSpecifier": "relative",
+  "js/ts.updateImportsOnFileMove.enabled": "always",
   "window.enableMenuBarMnemonics": false,
   "window.openFilesInNewWindow": "default",
   "editor.fontLigatures": true,
@@ -28,7 +25,6 @@
   "git.confirmSync": false,
   "git.autofetch": true,
   "git.enableSmartCommit": true,
-  "chat.commandCenter.enabled": false,
   "files.associations": {
     "*.lisp": "scheme"
   }
