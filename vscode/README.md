@@ -22,5 +22,8 @@ cat extensions.txt | xargs -n 1 code-oss --install-extension
 install:
 
 ```
-Get-Content .\extensions.txt | ForEach-Object { code --install-extension $_ }
+Get-Content .\extensions.txt | ForEach-Object { 
+    code --install-extension $_ --force
+    if ($LASTEXITCODE -ne 0) { Write-Host "安装失败: $_" -ForegroundColor Red }
+}
 ```
