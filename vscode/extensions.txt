@@ -3,6 +3,8 @@ fabiospampinato.vscode-monokai-night
 haruhi-s.sexp
 jaycetyle.vscode-gnu-global
 mattn.lisp
+ms-vscode.cmake-tools
+ms-vscode.cpp-devtools
 pixelbyte-studios.pixelbyte-love2d
 sashaweiss.block-travel
 sjhuangx.vscode-scheme
