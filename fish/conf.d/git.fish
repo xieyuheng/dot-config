@@ -1,7 +1,0 @@
-alias st "git status"
-# alias add "git add .; and git status"
-alias sub "git reset HEAD .; and git status"
-alias ci "git commit; and git status"
-alias up "git add .; and git commit -m 'up'; and git push"
-# alias br "git branch -v"
-# alias bl "git branch -vva"
