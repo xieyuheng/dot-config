@@ -6,3 +6,8 @@ alias mv " mv -vi"
 alias rm " rm -v "
 alias df " df -h "
 alias du " du -h "
+
+function cd
+    builtin cd $argv
+    builtin cd (pwd -P)
+end
