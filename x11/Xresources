@@ -23,15 +23,11 @@ Xcursor.theme: Adwaita
 *color14: #fcaf3e
 *color15: #EEEEEC
 
-XTerm.vt100.faceName: Monaco
-XTerm.vt100.faceSize: 16
-XTerm.vt100.saveLines: 65535
-
 URxvt.geometry: 400x400
-URxvt.font: xft:Unifont:size=18:style=Regular
+URxvt.font: xft:Unifont:size=16:style=Regular
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
-URxvt.saveline: 1000000
+URxvt.saveLines: 0
 URxvt.thickness: 16
 URxvt.scrollstyle: plain
 URxvt.scrollBar: true
