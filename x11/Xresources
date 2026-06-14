@@ -27,7 +27,7 @@ URxvt.geometry: 400x400
 URxvt.font: xft:Unifont:size=16:style=Regular
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
-URxvt.saveLines: 1000000000
+URxvt.saveLines: 1000000
 URxvt.thickness: 16
 URxvt.scrollstyle: plain
 URxvt.scrollBar: true
