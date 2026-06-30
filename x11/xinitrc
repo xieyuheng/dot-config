@@ -19,6 +19,9 @@ pipewire &
 brillo -I &
 # dunst &
 
+# why: allow root's acpid to call xset dpms force off on lid close
+xhost +SI:localuser:root
+
 export XDG_SESSION_TYPE=x11
 export GDK_BACKEND=x11
 
