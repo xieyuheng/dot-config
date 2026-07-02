@@ -1,6 +1,6 @@
 # ~/.config/zathura/zathurarc
 
-set font "unifont 16"
+set font "unifont 14"
 set notification-bg "#000"
 set notification-fg "#fff"
 set scroll-step 100
