@@ -1,0 +1,10 @@
+[user]
+        email = xyheme@gmail.com
+        name = Xie Yuheng
+[core]
+        editor = emacsclient -c
+        pager = diff-so-fancy | less --quit-if-one-screen --mouse --raw-control-chars
+[pull]
+        rebase = true
+[push]
+        autoSetupRemote = true
