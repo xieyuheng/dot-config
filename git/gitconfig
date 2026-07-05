@@ -8,3 +8,5 @@
         rebase = true
 [push]
         autoSetupRemote = true
+[alias]
+        log-line = log --graph --all --topo-order --date=format-local:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(cyan)%h%Creset %C(black bold)%ad%Creset%C(auto)%d %s'
