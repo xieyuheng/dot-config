@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# format="%(upload_date>%Y-%m-%d)s-%(title)s.%(ext)s"
+format="%(upload_date>%Y-%m-%d)s %(title)s %(id)s.%(ext)s"
+
+yt-dlp --output "$format" --cookies-from-browser firefox $@
