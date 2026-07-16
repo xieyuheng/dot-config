@@ -11,3 +11,5 @@ function cd
     builtin cd $argv
     builtin cd (pwd -P)
 end
+
+set -gx MANPAGER "less --quit-if-one-screen --mouse --raw-control-chars"
