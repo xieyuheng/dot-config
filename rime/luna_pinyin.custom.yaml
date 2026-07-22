@@ -14,5 +14,5 @@ patch:
     - name: simplification
       states: ["漢字", "汉字"]
     # 中文标点/英文标点
-    - name: ascii_punct
-      states: ["。，", "．，"]
+    # - name: ascii_punct
+    #   states: ["。，", "．，"]
