@@ -11,16 +11,20 @@ patch:
     save_options:
       - simplification
 
-  # 切换到英文输入模式（即 Rime 内部直接输出英文字母）
-  #   只保留 Rime 时，英文只能靠此机制输入
-  #   Shift_L 使用 commit_text：先提交当前输入内容，再切换为英文模式
+  # 切换到英文输入模式（Rime 内部直接输出英文字母，不依赖系统键盘）
+  # 只保留 Rime 时，英文只能靠此机制输入
   ascii_composer:
     switch_key:
-      Shift_L: commit_text     # 左 Shift：提交 + 切英文
-      Shift_R: noop            # 右 Shift：禁用
-      Caps_Lock: noop          # Caps Lock：禁用
-      Control_L: noop          # 左 Ctrl：禁用
-      Control_R: noop          # 右 Ctrl：禁用
+      # 每个按键可选的值：
+      #   noop          禁用该键，不产生任何操作
+      #   inline_ascii  直接切到英文模式，已输入的拼音原地转为英文字母
+      #   commit_text   先提交已输入的拼音/候选，再切到英文模式
+      #   clear         清空已输入的拼音/候选，再切到英文模式
+      Shift_L: inline_ascii
+      Shift_R: noop
+      Caps_Lock: noop
+      Control_L: noop
+      Control_R: noop
 
   # 按键选项菜单（按需修改，列表 → { commit: "字符" } 即为直接输入 ASCII）
   punctuator/half_shape:
