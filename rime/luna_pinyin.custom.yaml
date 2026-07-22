@@ -10,12 +10,9 @@ patch:
     # 半角/全角
     - name: full_shape
       states: ["半角", "全角"]
-      reset: 0
     # 简体/繁体转换
     - name: simplification
       states: ["漢字", "汉字"]
-      reset: 1
     # 中文标点/英文标点
     - name: ascii_punct
       states: ["。，", "．，"]
-      reset: 0
