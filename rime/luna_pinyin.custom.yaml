@@ -9,12 +9,12 @@ patch:
       reset: 1
     # 半角/全角
     - name: full_shape
-      states: ["全角", "半角"]
-      reset: 0
+      states: ["半角", "全角"]
+      reset: 1
     # 简体/繁体转换
     - name: simplification
-      states: ["汉字", "漢字"]
-      reset: 0
+      states: ["漢字", "汉字"]
+      reset: 1
     # 中文标点/英文标点
     - name: ascii_punct
       states: ["。，", "．，"]
