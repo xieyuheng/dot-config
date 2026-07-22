@@ -20,7 +20,7 @@ patch:
       #   inline_ascii  直接切到英文模式，已输入的拼音原地转为英文字母
       #   commit_text   先提交已输入的拼音/候选，再切到英文模式
       #   clear         清空已输入的拼音/候选，再切到英文模式
-      Shift_L: inline_ascii
+      Shift_L: commit_text
       Shift_R: noop
       Caps_Lock: noop
       Control_L: noop

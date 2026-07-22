@@ -5,14 +5,17 @@ patch:
     # 不写 reset → 记住上次设置的状态，不会自动重置
     # 中/英输入模式（在 Rime 内部切换到英文输出）
     - name: ascii_mode
-      reset: 1
       states: ["中文", "西文"]
+      reset: 1
     # 半角/全角
     - name: full_shape
-      states: ["半角", "全角"]
+      states: ["全角", "半角"]
+      reset: 0
     # 简体/繁体转换
     - name: simplification
-      states: ["漢字", "汉字"]
+      states: ["汉字", "漢字"]
+      reset: 0
     # 中文标点/英文标点
     - name: ascii_punct
       states: ["。，", "．，"]
+      reset: 0
