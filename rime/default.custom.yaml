@@ -10,6 +10,7 @@ patch:
       - F4
     save_options:
       - simplification
+      - full_shape
 
   # 切换到英文输入模式（Rime 内部直接输出英文字母，不依赖系统键盘）
   # 只保留 Rime 时，英文只能靠此机制输入
