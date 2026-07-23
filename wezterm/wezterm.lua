@@ -1,6 +1,7 @@
 -- ~/.config/wezterm/wezterm.lua
 
 local wezterm = require 'wezterm'
+local theme = require 'theme'
 return {
   -- front_end = "Software",
   scrollback_lines = 1000000,
@@ -16,28 +17,5 @@ return {
   }),
   font_size = 16,
   cell_width = 0.5,
-  colors = {
-    foreground = '#ffffff',
-    background = '#000000',
-    ansi = {
-      '#2E3436',
-      '#a40000',
-      '#4E9A06',
-      '#C4A000',
-      '#3465A4',
-      '#75507B',
-      '#ce5c00',
-      '#babdb9',
-    },
-    brights = {
-      '#555753',
-      '#EF2929',
-      '#8AE234',
-      '#FCE94F',
-      '#729FCF',
-      '#AD7FA8',
-      '#fcaf3e',
-      '#EEEEEC',
-    },
-  },
+  colors = theme.colors,
 }

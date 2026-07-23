@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-cp wezterm.lua ~/.config/wezterm/wezterm.lua
+cp wezterm.lua theme.lua ~/.config/wezterm/
