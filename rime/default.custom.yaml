@@ -2,6 +2,7 @@ patch:
   menu/page_size: 5
   schema_list:
     - schema: terra_pinyin
+    - schema: stroke
   switcher:
     caption: "〔方案選單〕"            # 选单标题
     hotkeys:                           # 触发快捷键
@@ -31,6 +32,7 @@ patch:
     "*": { commit: "*" }
     "\\": { commit: "、" }
     "/": { commit: "/" }
+    "`": { commit: "`" }
     "<": { commit: "《" }
     ">": { commit: "》" }
     "(": { commit: "（" }
