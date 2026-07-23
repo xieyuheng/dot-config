@@ -9,7 +9,11 @@ return {
     {key = 't', mods = 'CTRL', action = wezterm.action.SpawnTab 'CurrentPaneDomain'},
     {key = 'w', mods = 'CTRL', action = wezterm.action.CloseCurrentTab {confirm = true}},
   },
-  font = wezterm.font('Unifont'),
+  font = wezterm.font_with_fallback({
+    'Unifont',
+    'Noto Sans Mono',
+    'Noto Sans CJK SC',
+  }),
   font_size = 16,
   cell_width = 0.5,
   colors = {
