@@ -1,3 +1,5 @@
+-- ~/.config/wezterm/wezterm.lua
+
 local wezterm = require 'wezterm'
 return {
   -- front_end = "Software",
