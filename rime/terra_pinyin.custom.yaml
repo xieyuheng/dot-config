@@ -1,4 +1,5 @@
 patch:
+  recognizer/patterns/reverse_lookup:
   switches:
     # reset: 0  → 默认取 states 第 0 项
     # reset: 1  → 默认取 states 第 1 项
