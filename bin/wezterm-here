@@ -1,0 +1,3 @@
+#!/bin/sh
+cwd="$(xdotool getactivewindow getactivewindow getwindowpid 2>/dev/null | xargs -I{} readlink /proc/{}/cwd 2>/dev/null)"
+cd "${cwd:-$HOME}" && wezterm start
