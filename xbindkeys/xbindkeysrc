@@ -3,7 +3,7 @@
 "emacsclient -c -e '(eshell t)'"
   Shift+Alt + x
 
-"urxvt-here"
+"wezterm-here"
   Shift+Alt + Return
 
 # "rofi -font 'unifont 36' -show run"
