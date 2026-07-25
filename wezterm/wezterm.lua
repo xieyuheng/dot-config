@@ -17,5 +17,6 @@ return {
   }),
   font_size = 16,
   cell_width = 0.5,
+  warn_about_missing_glyphs = false,
   colors = theme.colors,
 }
