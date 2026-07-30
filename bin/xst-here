@@ -1,0 +1,6 @@
+#!/bin/sh
+# 在 xst 启动前获取当前聚焦窗口的目录，避免焦点转移到新窗口后 xcwd 返回值错误
+dir="$(xcwd)"
+# dir 加单引号防止路径含空格或特殊字符时被 shell 拆分
+# \$SHELL 中转义 $ 让内层 sh 展开，而不是被外层替换
+exec xst -e sh -c "cd '$dir' && exec \$SHELL"

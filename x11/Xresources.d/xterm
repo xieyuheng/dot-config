@@ -1,0 +1,9 @@
+XTerm*faceName: xft:Unifont:pixelsize=32
+
+XTerm*geometry: 180x50
+
+XTerm*scrollBar: true
+XTerm*rightScrollBar: true
+XTerm*saveLines: 1000000000
+XTerm*scrollTtyOutput: false
+XTerm*scrollTtyKeypress: true

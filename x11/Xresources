@@ -1,52 +1,6 @@
-Xft.dpi: 192
+#include ".Xresources.d/dpi"
+#include ".Xresources.d/colors"
+#include ".Xresources.d/urxvt"
+#include ".Xresources.d/st"
+#include ".Xresources.d/xterm"
 
-Xcursor.size: 48
-Xcursor.theme: Adwaita
-
-*foreground: white
-*background: black
-
-*color0:  #2E3436
-*color1:  #a40000
-*color2:  #4E9A06
-*color3:  #C4A000
-*color4:  #3465A4
-*color5:  #75507B
-*color6:  #ce5c00
-*color7:  #babdb9
-*color8:  #555753
-*color9:  #EF2929
-*color10: #8AE234
-*color11: #FCE94F
-*color12: #729FCF
-*color13: #AD7FA8
-*color14: #fcaf3e
-*color15: #EEEEEC
-
-URxvt.geometry: 400x400
-URxvt.font: xft:Unifont:size=16:style=Regular
-URxvt.letterSpace: 0
-URxvt.lineSpace: 0
-URxvt.saveLines: 1000000
-URxvt.thickness: 16
-URxvt.scrollstyle: plain
-URxvt.scrollBar: true
-URxvt.scrollBar_right: true
-URxvt.scrollTtyKeypress: true
-URxvt.scrollTtyOutput: false
-URxvt.scrollWithBuffer: true
-URxvt.depth: 32
-URxvt.iso14755: false
-
-URxvt.keysym.A-p: command:\033]720;3\007
-URxvt.keysym.A-n: command:\033]721;3\007
-URxvt.perl-lib: /home/xyh/.config/urxvt
-URxvt.perl-ext-common: default,keyboard-select,resize-font,-confirm-paste
-URxvt.keysym.Shift-Control-V: eval:paste_clipboard
-URxvt.keysym.A-Escape: perl:keyboard-select:activate
-URxvt.keyboard-select.clipboard: true
-! URxvt.keysym.C-equal: font-size:increase
-! URxvt.keysym.C-minus: font-size:decrease
-URxvt.keysym.C-minus: resize-font:smaller
-URxvt.keysym.C-equal: resize-font:bigger
-URxvt.keysym.C-question:  resize-font:show
