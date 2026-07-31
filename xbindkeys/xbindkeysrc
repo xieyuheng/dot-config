@@ -3,10 +3,9 @@
 "emacsclient -c -e '(eshell t)'"
   Shift+Alt + x
 
-"wezterm-here"
+"xst-here"
   Shift+Alt + Return
 
-# "rofi -font 'unifont 36' -show run"
 "dmenu_run -fn unifont-16 -l 20"
   Control+Alt + Return
 
