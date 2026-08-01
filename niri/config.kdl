@@ -310,7 +310,7 @@ binds {
     // Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
-    Alt+Shift+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
+    Alt+Shift+Return hotkey-overlay-title="Open a Terminal: foot" { spawn-sh "foot -D \"$(niri-cwd)\""; }
     Alt+Ctrl+Return hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Alt+Shift+x { spawn "emacsclient" "-c" "-e" "(eshell t)"; }
 

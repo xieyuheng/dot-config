@@ -1,0 +1,101 @@
+#!/bin/sh
+# niri-cwd - print the cwd of the deepest tty-attached descendant of the
+# focused niri window (or of a given PID), mirroring ycwd's algorithm.
+# If the focused window has no tty descendant (e.g. a PDF viewer), fall
+# back to the directory of a file it holds open (preferring *.pdf).
+# Usage: niri-cwd [PID]
+
+if [ $# -ge 1 ]; then
+    pid=$1
+else
+    pid=$(niri msg --json focused-window 2>/dev/null | jq -r '.pid' 2>/dev/null)
+    [ "$pid" = "null" ] && pid=
+fi
+
+if [ -z "$pid" ]; then
+    echo "${HOME:-/}"
+    exit 0
+fi
+case "$pid" in *[!0-9]*)
+    echo "${HOME:-/}"
+    exit 0;;
+esac
+[ -d "/proc/$pid" ] || {
+    echo "${HOME:-/}"
+    exit 0
+}
+
+walk() {
+    depth=$1
+    p=$2
+    for children in /proc/$p/task/*/children; do
+        [ -r "$children" ] || continue
+        for c in $(cat "$children" 2>/dev/null); do
+            case "$c" in *[!0-9]*) continue;; esac
+            walk $((depth + 1)) "$c"
+        done
+    done
+    echo "$depth $p"
+}
+
+res=$(walk 0 "$pid" | sort -k1,1nr | {
+    while read -r depth p; do
+        tty=$(ps -o tty= -p "$p" 2>/dev/null | tr -d ' ')
+        [ -n "$tty" ] && [ "$tty" != "?" ] || continue
+        cwd=$(readlink "/proc/$p/cwd" 2>/dev/null)
+        [ -n "$cwd" ] || continue
+        echo "$cwd"
+        exit 0
+    done
+    exit 1
+})
+
+if [ -n "$res" ]; then
+    echo "$res"
+    exit 0
+fi
+
+# zathura exposes the document path over D-Bus. Needed for djvu/epub
+# and similar, whose backends do not keep the document fd open.
+if [ "$(cat /proc/$pid/comm 2>/dev/null)" = "zathura" ]; then
+    name="org.pwmt.zathura.PID-$pid"
+    if busctl --user --no-pager list 2>/dev/null | grep -q "^$name "; then
+        file=$(busctl --user --no-pager get-property "$name" \
+            /org/pwmt/zathura org.pwmt.zathura filename 2>/dev/null |
+            sed -n 's/^s "\(.*\)"$/\1/p')
+        if [ -n "$file" ]; then
+            dir=$(dirname "$file")
+            [ -n "$dir" ] && {
+                echo "$dir"
+                exit 0
+            }
+        fi
+    fi
+fi
+
+# No tty process: the focused window is not a terminal. If it holds a
+# regular file open (e.g. a PDF viewer), open the terminal in that
+# file's directory.
+first_dir=
+for fd in /proc/$pid/fd/*; do
+    [ -r "$fd" ] || continue
+    target=$(readlink "$fd" 2>/dev/null)
+    case "$target" in
+        /dev/*|/proc/*|/sys/*|*.so*|*deleted*|"") continue;;
+    esac
+    [ -f "$target" ] || continue
+    dir=$(dirname "$target")
+    case "$target" in
+        *.pdf|*.PDF)
+            echo "$dir"
+            exit 0;;
+    esac
+    [ -z "$first_dir" ] && first_dir=$dir
+done
+
+if [ -n "$first_dir" ]; then
+    echo "$first_dir"
+    exit 0
+fi
+
+echo "${HOME:-/}"
