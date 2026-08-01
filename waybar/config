@@ -1,0 +1,32 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "modules-left": ["niri/workspaces"],
+    "modules-center": [],
+    "modules-right": ["pulseaudio", "battery", "clock"],
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "default": " ",
+            "focused": " ",
+            "active": " ",
+            "urgent": " ",
+            "empty": " "
+        }
+    },
+    "pulseaudio": {
+        "format": "{volume}%",
+        "format-muted": "muted",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+    "battery": {
+        "format": "{capacity}%",
+        "format-charging": "{capacity}%+",
+        "interval": 30
+    },
+    "clock": {
+        "format": "{:%Y-%m-%d %H:%M}",
+        "interval": 60
+    }
+}
