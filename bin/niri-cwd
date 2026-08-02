@@ -1,15 +1,18 @@
 #!/bin/sh
 # niri-cwd - print the cwd of the deepest tty-attached descendant of the
 # focused niri window (or of a given PID), mirroring ycwd's algorithm.
-# If the focused window has no tty descendant, fall back to the
-# directory of a regular file it holds open (preferring *.pdf).
-# Otherwise print $HOME.
+# Emacs daemon frames are resolved via emacsclient. If the focused
+# window has no tty descendant, fall back to the directory of a regular
+# file it holds open (preferring *.pdf). Otherwise print $HOME.
 # Usage: niri-cwd [PID]
 
 if [ $# -ge 1 ]; then
     pid=$1
+    title=
 else
-    pid=$(niri msg --json focused-window 2>/dev/null | jq -r '.pid' 2>/dev/null)
+    json=$(niri msg --json focused-window 2>/dev/null)
+    pid=$(printf '%s' "$json" | jq -r '.pid' 2>/dev/null)
+    title=$(printf '%s' "$json" | jq -r '.title' 2>/dev/null)
     [ "$pid" = "null" ] && pid=
 fi
 
@@ -17,6 +20,20 @@ fi
     echo "${HOME:-/}"
     exit 0
 }
+
+# Emacs daemon: client frames belong to the daemon process, which has no
+# tty children, so ask the daemon for the focused frame's file. The
+# focused frame is located by matching the niri window title against the
+# frame name / buffer name (selected-frame is unreliable on pgtk).
+case "$(cat /proc/$pid/comm 2>/dev/null)" in
+emacs|emacs-*)
+    esc=$(printf '%s' "$title" | tr -d '\n\r' | sed 's/\\/\\\\/g; s/"/\\"/g')
+    dir=$(timeout 3 emacsclient --eval "(x-window-current-dir \"$esc\")" 2>/dev/null | sed -n 's/^"\(.*\)"$/\1/p')
+    [ -n "$dir" ] && [ -d "$dir" ] && {
+        echo "$dir"
+        exit 0
+    } ;;
+esac
 
 walk() {
     local depth=$1 p=$2
