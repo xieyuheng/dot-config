@@ -176,7 +176,6 @@ environment {
     GTK_IM_MODULE "fcitx"
     QT_IM_MODULE "fcitx"
     XMODIFIERS "@im=fcitx"
-    QTWEBENGINE_CHROMIUM_FLAGS "--disable-gpu"
 }
 
 // Add lines like this to spawn processes at startup.
@@ -193,15 +192,7 @@ spawn-at-startup "fcitx5" "-d"
 spawn-at-startup "brillo" "-I"
 spawn-at-startup "bash" "/home/xyh/.wallpapers/swaybg-loop.sh"
 
-// Named workspaces.
-workspace "web"
-workspace "code"
-
-// Browsers and dictionary on the "web" workspace, Emacs on the "code" workspace.
-spawn-at-startup "chromium"
-spawn-at-startup "firefox"
-spawn-at-startup "goldendict-ng"
-spawn-at-startup "emacs"
+spawn-at-startup "niri-start-apps"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -277,18 +268,6 @@ window-rule {
 window-rule {
     geometry-corner-radius 10
     clip-to-geometry true
-}
-
-// Open browsers and dictionary on the "web" workspace at startup.
-window-rule {
-    match at-startup=true app-id=r#"(?i)(chromium|firefox|goldendict)"#
-    open-on-workspace "web"
-}
-
-// Open Emacs on the "code" workspace at startup.
-window-rule {
-    match at-startup=true app-id=r#"(?i)emacs"#
-    open-on-workspace "code"
 }
 
 binds {
