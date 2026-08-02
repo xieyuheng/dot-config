@@ -1,32 +1,23 @@
 {
-    "layer": "top",
-    "position": "top",
-    "height": 30,
     "modules-left": ["niri/workspaces"],
-    "modules-center": [],
-    "modules-right": ["pulseaudio", "battery", "clock"],
-    "niri/workspaces": {
-        "format": "{icon}",
-        "format-icons": {
-            "default": " ",
-            "focused": " ",
-            "active": " ",
-            "urgent": " ",
-            "empty": " "
-        }
-    },
-    "pulseaudio": {
-        "format": "{volume}%",
-        "format-muted": "muted",
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-    },
-    "battery": {
-        "format": "{capacity}%",
-        "format-charging": "{capacity}%+",
-        "interval": 30
-    },
+    "modules-center": ["clock"],
+    "modules-right": ["memory", "pulseaudio", "battery"],
     "clock": {
         "format": "{:%Y-%m-%d %H:%M}",
         "interval": 60
+    },
+    "memory": {
+        "format": " (内存 {used:0.1f}G / {total:0.1f}G)",
+        "interval": 1
+    },
+    "pulseaudio": {
+        "format": " (音量 {volume}%)",
+        "format-muted": "(静音)",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+    "battery": {
+        "format": " (电量 {capacity}%)",
+        "format-charging": "(电量+ {capacity}%)",
+        "interval": 30
     }
 }
