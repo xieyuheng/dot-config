@@ -9,4 +9,10 @@ if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
         export DBUS_SESSION_BUS_ADDRESS
     fi
 fi
-exec /usr/bin/chromium "$@"
+# Mark the last session as cleanly-exited so the "Restore pages?" bubble
+# doesn't appear. Tabs still restore via "Continue where you left off".
+if ! pgrep -x chromium >/dev/null 2>&1 && [ -f "$HOME/.config/chromium/Default/Preferences" ]; then
+    sed -i 's/"exit_type":"Crashed"/"exit_type":"Normal"/' "$HOME/.config/chromium/Default/Preferences"
+fi
+
+exec /usr/bin/chromium --hide-crash-restore-bubble "$@"
