@@ -176,6 +176,7 @@ environment {
     GTK_IM_MODULE "fcitx"
     QT_IM_MODULE "fcitx"
     XMODIFIERS "@im=fcitx"
+    QTWEBENGINE_CHROMIUM_FLAGS "--disable-gpu"
 }
 
 // Add lines like this to spawn processes at startup.
