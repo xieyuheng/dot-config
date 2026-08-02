@@ -190,6 +190,7 @@ spawn-at-startup "pipewire"
 spawn-at-startup "waybar"
 spawn-at-startup "fcitx5" "-d"
 spawn-at-startup "brillo" "-I"
+spawn-at-startup "bash" ["/home/xyh/.wallpapers/swaybg-loop.sh"]
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
