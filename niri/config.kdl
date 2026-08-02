@@ -280,7 +280,7 @@ window-rule {
 
 // Open browsers and dictionary on the "web" workspace at startup.
 window-rule {
-    match at-startup=true app-id=r#"(?i)^(chromium|firefox|goldendict)"#
+    match at-startup=true app-id=r#"(?i)(chromium|firefox|goldendict)"#
     open-on-workspace "web"
 }
 
