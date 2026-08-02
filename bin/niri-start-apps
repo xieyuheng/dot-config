@@ -1,9 +1,9 @@
 #!/usr/bin/env sh
 
 niri msg action focus-workspace 1
+goldendict-ng &
 chromium &
 firefox &
-goldendict-ng &
 
 while [ "$(niri msg windows 2>/dev/null | grep -cE 'App ID: .*(chromium|Firefox|goldendict)')" -lt 3 ]; do
     sleep 0.2
