@@ -1,8 +1,9 @@
 #!/bin/sh
 # niri-cwd - print the cwd of the deepest tty-attached descendant of the
 # focused niri window (or of a given PID), mirroring ycwd's algorithm.
-# If the focused window has no tty descendant (e.g. a PDF viewer), fall
-# back to the directory of a file it holds open (preferring *.pdf).
+# If the focused window has no tty descendant, fall back to the
+# directory of a regular file it holds open (preferring *.pdf).
+# Otherwise print $HOME.
 # Usage: niri-cwd [PID]
 
 if [ $# -ge 1 ]; then
@@ -12,22 +13,14 @@ else
     [ "$pid" = "null" ] && pid=
 fi
 
-if [ -z "$pid" ]; then
-    echo "${HOME:-/}"
-    exit 0
-fi
-case "$pid" in *[!0-9]*)
-    echo "${HOME:-/}"
-    exit 0;;
-esac
-[ -d "/proc/$pid" ] || {
+[ -n "$pid" ] && [ -d "/proc/$pid" ] || {
     echo "${HOME:-/}"
     exit 0
 }
 
 walk() {
-    depth=$1
-    p=$2
+    local depth=$1 p=$2
+    local children c
     for children in /proc/$p/task/*/children; do
         [ -r "$children" ] || continue
         for c in $(cat "$children" 2>/dev/null); do
@@ -38,12 +31,12 @@ walk() {
     echo "$depth $p"
 }
 
-res=$(walk 0 "$pid" | sort -k1,1nr | {
+res=$(walk 0 "$pid" | sort -k1,1nr -k2,2n -u | {
     while read -r depth p; do
         tty=$(ps -o tty= -p "$p" 2>/dev/null | tr -d ' ')
         [ -n "$tty" ] && [ "$tty" != "?" ] || continue
         cwd=$(readlink "/proc/$p/cwd" 2>/dev/null)
-        [ -n "$cwd" ] || continue
+        [ -d "$cwd" ] || continue
         echo "$cwd"
         exit 0
     done
@@ -93,9 +86,4 @@ for fd in /proc/$pid/fd/*; do
     [ -z "$first_dir" ] && first_dir=$dir
 done
 
-if [ -n "$first_dir" ]; then
-    echo "$first_dir"
-    exit 0
-fi
-
-echo "${HOME:-/}"
+echo "${first_dir:-${HOME:-/}}"
