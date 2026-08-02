@@ -262,7 +262,7 @@ window-rule {
 
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
-/-window-rule {
+window-rule {
     geometry-corner-radius 10
     clip-to-geometry true
 }
@@ -288,6 +288,7 @@ binds {
     // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     Alt+Shift+Return hotkey-overlay-title="Open a Terminal: foot" { spawn-sh "foot -D \"$(niri-cwd)\""; }
+    Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn-sh "foot"; }
     Alt+Ctrl+Return hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Alt+Shift+x { spawn "emacsclient" "-c" "-e" "(eshell t)"; }
 
