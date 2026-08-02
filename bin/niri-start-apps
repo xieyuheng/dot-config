@@ -6,8 +6,9 @@ chromium &
 firefox &
 
 while [ "$(niri msg windows 2>/dev/null | grep -cE 'App ID: .*(chromium|Firefox|goldendict)')" -lt 3 ]; do
-    sleep 0.2
+    sleep 0.5
 done
 
+sleep 0.5
 niri msg action focus-workspace 2
 emacs &
