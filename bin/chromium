@@ -15,4 +15,4 @@ if ! pgrep -x chromium >/dev/null 2>&1 && [ -f "$HOME/.config/chromium/Default/P
     sed -i 's/"exit_type":"Crashed"/"exit_type":"Normal"/' "$HOME/.config/chromium/Default/Preferences"
 fi
 
-exec /usr/bin/chromium --hide-crash-restore-bubble "$@"
+exec /usr/bin/chromium --restore-last-session --hide-crash-restore-bubble "$@"
