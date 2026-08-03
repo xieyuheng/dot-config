@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-copy * ~/.config/fish
+cp -r * ~/.config/fish
