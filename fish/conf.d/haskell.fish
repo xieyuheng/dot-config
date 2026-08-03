@@ -1,0 +1,1 @@
+set PATH $PATH $HOME/.cabal/bin
