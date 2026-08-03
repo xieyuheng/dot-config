@@ -1,0 +1,27 @@
+# Single source of truth for PATH.
+# One directory per line.  Order = priority: earlier lines come first.
+# "~" is expanded to $HOME.
+# Consumers: bin/start-niri (sh), fish/conf.d/zz-path.fish.
+
+~/bin
+~/.local/bin
+~/.kimi-code/bin
+~/.opencode/bin
+~/.miniconda3/bin
+~/.config/composer/vendor/bin
+~/.bun/bin
+~/.local/share/pnpm
+~/.local/share/pnpm/bin
+~/.n/bin
+~/.deno/bin
+/usr/local/sbin
+/usr/local/bin
+/usr/bin
+/usr/sbin
+/sbin
+/bin
+~/.go/bin
+~/.cabal/bin
+~/.nix-profile/bin
+~/.gem/ruby/2.7.0/bin
+~/.cargo/bin
