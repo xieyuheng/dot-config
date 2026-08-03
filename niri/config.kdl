@@ -187,7 +187,8 @@ environment {
 // via /etc/pipewire/pipewire.conf.d/ drop-ins.
 spawn-at-startup "pipewire"
 
-spawn-at-startup "waybar"
+// spawn-at-startup "waybar"
+spawn-at-startup "noctalia"
 spawn-at-startup "fcitx5" "-d"
 spawn-at-startup "brillo" "-I"
 spawn-at-startup "bash" "/home/xyh/.wallpapers/swaybg-loop.sh"
