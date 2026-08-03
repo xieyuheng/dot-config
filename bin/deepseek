@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /home/xyh/bin/chromium --new-window "https://chat.deepseek.com/"
