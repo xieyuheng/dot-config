@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Start Niri
+Comment=A scrollable-tiling Wayland compositor
+Exec=/home/xyh/bin/start-niri
+Type=Application
+DesktopNames=niri
