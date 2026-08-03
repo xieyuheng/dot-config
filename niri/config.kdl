@@ -191,7 +191,7 @@ spawn-at-startup "pipewire"
 spawn-at-startup "noctalia"
 spawn-at-startup "fcitx5" "-d"
 spawn-at-startup "brillo" "-I"
-spawn-at-startup "bash" "/home/xyh/.wallpapers/swaybg-loop.sh"
+// spawn-at-startup "bash" "/home/xyh/.wallpapers/swaybg-loop.sh"
 
 spawn-at-startup "niri-start-apps"
 
