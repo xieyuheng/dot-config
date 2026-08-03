@@ -1,0 +1,5 @@
+[shell]
+lang = "zh-CN"
+
+[location]
+auto_locate = true
