@@ -3,3 +3,17 @@ lang = "zh-CN"
 
 [location]
 auto_locate = true
+
+[wallpaper]
+enabled = true
+fill_mode = "crop"
+directory = "/home/xyh/.wallpapers/ji"
+
+[wallpaper.default]
+path = "/home/xyh/.wallpapers/ji/2012022724148377.jpg"
+
+[wallpaper.automation]
+enabled = true
+interval_seconds = 1800
+order = "random"
+recursive = true
