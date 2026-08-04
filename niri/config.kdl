@@ -291,11 +291,10 @@ binds {
     // Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
-    // Alt+Shift+Return hotkey-overlay-title="Open a Terminal: foot" { spawn-sh "foot -D \"$(niri-cwd)\""; }
-    Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn-sh "foot -D \"$(niri-cwd)\""; }
-    Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn-sh "foot -D \"$(niri-cwd)\""; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Mod+E { spawn "emacsclient" "-c" "-e" "(eshell t)"; }
+    Alt+Shift+Return hotkey-overlay-title="Open a Terminal: foot" { spawn-sh "foot -D \"$(niri-cwd)\""; }
+    Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn-sh "foot"; }
+    Alt+Ctrl+Return hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Alt+Shift+x { spawn "emacsclient" "-c" "-e" "(eshell t)"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -325,44 +324,65 @@ binds {
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
-    Mod+Escape repeat=false { toggle-overview; }
-    Mod+Q repeat=false { close-window; }
+    Alt+Escape repeat=false { toggle-overview; }
+    Mod+O repeat=false { toggle-overview; }
 
-    Mod+Left  { focus-column-left; }
-    Mod+Right { focus-column-right; }
-    Mod+Down  { focus-workspace-down; }
-    Mod+Up    { focus-workspace-up; }
-    Mod+H     { focus-column-left; }
-    Mod+L     { focus-column-right; }
-    Mod+J     { focus-workspace-down; }
-    Mod+K     { focus-workspace-up; }
+    Alt+Shift+c repeat=false { close-window; }
+    // Mod+Q repeat=false { close-window; }
 
-    Mod+Ctrl+Left  { move-column-left; }
-    Mod+Ctrl+Right { move-column-right; }
-    Mod+Ctrl+Down  { move-column-to-workspace-down; }
-    Mod+Ctrl+Up    { move-column-to-workspace-up; }
-    Mod+Ctrl+H     { move-column-left; }
-    Mod+Ctrl+L     { move-column-right; }
-    Mod+Ctrl+J     { move-column-to-workspace-down; }
-    Mod+Ctrl+K     { move-column-to-workspace-up; }
+    Alt+Left  { focus-column-left; }
+    Alt+Right { focus-column-right; }
+    Alt+Down  { focus-workspace-down; }
+    Alt+Up    { focus-workspace-up; }
+    Alt+H     { focus-column-left; }
+    Alt+L     { focus-column-right; }
+    Alt+J     { focus-workspace-down; }
+    Alt+K     { focus-workspace-up; }
 
-    Mod+Shift+Left  { focus-monitor-left; }
-    Mod+Shift+Down  { focus-monitor-down; }
-    Mod+Shift+Up    { focus-monitor-up; }
-    Mod+Shift+Right { focus-monitor-right; }
-    Mod+Shift+H     { focus-monitor-left; }
-    Mod+Shift+J     { focus-monitor-down; }
-    Mod+Shift+K     { focus-monitor-up; }
-    Mod+Shift+L     { focus-monitor-right; }
+    Alt+Shift+Left  { move-column-left; }
+    Alt+Shift+Right { move-column-right; }
+    Alt+Shift+Down  { move-column-to-workspace-down; }
+    Alt+Shift+Up    { move-column-to-workspace-up; }
+    Alt+Shift+H     { move-column-left; }
+    Alt+Shift+L     { move-column-right; }
+    Alt+Shift+J     { move-column-to-workspace-down; }
+    Alt+Shift+K     { move-column-to-workspace-up; }
 
-    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
-    Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
-    Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
-    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
-    Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
-    Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
-    Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
-    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+    // Mod+Left  { focus-column-left; }
+    // Mod+Right { focus-column-right; }
+    // Mod+Down  { focus-workspace-down; }
+    // Mod+Up    { focus-workspace-up; }
+    // Mod+H     { focus-column-left; }
+    // Mod+L     { focus-column-right; }
+    // Mod+J     { focus-workspace-down; }
+    // Mod+K     { focus-workspace-up; }
+
+    // Mod+Ctrl+Left  { move-column-left; }
+    // Mod+Ctrl+Right { move-column-right; }
+    // Mod+Ctrl+Down  { move-column-to-workspace-down; }
+    // Mod+Ctrl+Up    { move-column-to-workspace-up; }
+    // Mod+Ctrl+H     { move-column-left; }
+    // Mod+Ctrl+L     { move-column-right; }
+    // Mod+Ctrl+J     { move-column-to-workspace-down; }
+    // Mod+Ctrl+K     { move-column-to-workspace-up; }
+
+    // Mod+Shift+Left  { focus-monitor-left; }
+    // Mod+Shift+Down  { focus-monitor-down; }
+    // Mod+Shift+Up    { focus-monitor-up; }
+    // Mod+Shift+Right { focus-monitor-right; }
+    // Mod+Shift+H     { focus-monitor-left; }
+    // Mod+Shift+J     { focus-monitor-down; }
+    // Mod+Shift+K     { focus-monitor-up; }
+    // Mod+Shift+L     { focus-monitor-right; }
+
+    // Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+    // Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+    // Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+    // Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+    // Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
+    // Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
+    // Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
+    // Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
 
     Mod+U              { focus-workspace-down; }
     Mod+I              { focus-workspace-up; }
@@ -433,6 +453,27 @@ binds {
     Mod+Ctrl+9 { move-column-to-workspace 9; }
     Mod+Ctrl+0 { move-column-to-workspace 10; }
 
+    Alt+1 { focus-workspace 1; }
+    Alt+2 { focus-workspace 2; }
+    Alt+3 { focus-workspace 3; }
+    Alt+4 { focus-workspace 4; }
+    Alt+5 { focus-workspace 5; }
+    Alt+6 { focus-workspace 6; }
+    Alt+7 { focus-workspace 7; }
+    Alt+8 { focus-workspace 8; }
+    Alt+9 { focus-workspace 9; }
+    Alt+0 { focus-workspace 10; }
+    Alt+Shift+1 { move-column-to-workspace 1; }
+    Alt+Shift+2 { move-column-to-workspace 2; }
+    Alt+Shift+3 { move-column-to-workspace 3; }
+    Alt+Shift+4 { move-column-to-workspace 4; }
+    Alt+Shift+5 { move-column-to-workspace 5; }
+    Alt+Shift+6 { move-column-to-workspace 6; }
+    Alt+Shift+7 { move-column-to-workspace 7; }
+    Alt+Shift+8 { move-column-to-workspace 8; }
+    Alt+Shift+9 { move-column-to-workspace 9; }
+    Alt+Shift+0 { move-column-to-workspace 10; }
+
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
 
@@ -495,6 +536,7 @@ binds {
     // Move the focused window between the floating and the tiling layout.
     Mod+V       { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+    Alt+Shift+g { toggle-window-floating; }
 
     // Toggle tabbed column display mode.
     // Windows in this column will appear as vertical tabs,
@@ -525,15 +567,16 @@ binds {
     // Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
-    Mod+Shift+E { quit; }
+    Alt+Shift+E { quit; }
+    // Mod+Shift+E { quit; }
+    // Ctrl+Alt+Delete { quit; }
 
     // Reload the config file (equivalent to i3's Alt+Shift+r restart).
-    // Alt+Shift+r { spawn-sh "niri msg action load-config-file"; }
-
-    // Open DeepSeek chat in a new Chromium window.
-    Mod+A hotkey-overlay-title="DeepSeek Chat" { spawn-sh "/home/xyh/bin/deepseek"; }
+    Alt+Shift+r { spawn-sh "niri msg action load-config-file"; }
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
-    Mod+Shift+P { power-off-monitors; }
+    // Mod+Shift+P { power-off-monitors; }
+    Alt+Shift+P { power-off-monitors; }
+    Mod+A hotkey-overlay-title="DeepSeek Chat" { spawn-sh "/home/xyh/bin/deepseek"; }    
 }
