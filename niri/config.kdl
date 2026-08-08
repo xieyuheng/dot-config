@@ -576,7 +576,7 @@ binds {
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
-    // Mod+Shift+P { power-off-monitors; }
-    Alt+Shift+P { power-off-monitors; }
+    Mod+Shift+P { power-off-monitors; }
+    // Alt+Shift+P { power-off-monitors; }
     Mod+A hotkey-overlay-title="DeepSeek Chat" { spawn-sh "/home/xyh/bin/deepseek"; }
 }
