@@ -288,12 +288,12 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     // Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
-    // Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    // Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show run -font 'unifont 18'"; }
     // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     Alt+Shift+Return hotkey-overlay-title="Open a Terminal: foot" { spawn-sh "foot -D \"$(niri-cwd)\""; }
     Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn-sh "foot"; }
-    Alt+Ctrl+Return hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Alt+Ctrl+Return hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show run -font 'unifont 18'"; }
     Alt+Shift+x { spawn "emacsclient" "-c" "-e" "(eshell t)"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
@@ -578,5 +578,5 @@ binds {
     // moving the mouse or pressing any other key.
     // Mod+Shift+P { power-off-monitors; }
     Alt+Shift+P { power-off-monitors; }
-    Mod+A hotkey-overlay-title="DeepSeek Chat" { spawn-sh "/home/xyh/bin/deepseek"; }    
+    Mod+A hotkey-overlay-title="DeepSeek Chat" { spawn-sh "/home/xyh/bin/deepseek"; }
 }
