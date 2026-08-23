@@ -9,6 +9,10 @@ if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
         export DBUS_SESSION_BUS_ADDRESS
     fi
 fi
+# Force the dark GTK variant so Chromium's GTK-based UI (menus, dialogs,
+# download popups, etc.) follows the dark theme even on niri.
+export GTK_THEME="${GTK_THEME:-Adwaita:dark}"
+
 # Mark the last session as cleanly-exited so the "Restore pages?" bubble
 # doesn't appear. Tabs still restore via "Continue where you left off".
 if ! pgrep -x chromium >/dev/null 2>&1 && [ -f "$HOME/.config/chromium/Default/Preferences" ]; then
