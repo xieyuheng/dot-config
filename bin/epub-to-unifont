@@ -1,0 +1,86 @@
+#!/bin/bash
+set -euo pipefail
+
+UNIFONT_SRC="/home/xyh/.fonts/unifont/unifont-17.0.05.otf"
+SUFFIX="unifont"
+
+die() { echo "错误: $*" >&2; exit 1; }
+
+usage() {
+    echo "用法: epub-to-unifont <input.epub> [output.epub]"
+    echo ""
+    echo "将 EPUB 嵌入 Unifont 字体，所有 font-family 替换为 Unifont。"
+    echo "若不指定输出路径，默认输出到同级目录下 <原名>-unifont.epub"
+    exit 1
+}
+
+[ $# -lt 1 ] && usage
+
+SRC="$(realpath "$1")"
+[ ! -f "$SRC" ] && die "文件不存在: $SRC"
+
+if [ -n "${2:-}" ]; then
+    DST="$(realpath -m "$2")"
+else
+    DIR=$(dirname "$SRC")
+    BASE=$(basename "$SRC" .epub)
+    DST="${DIR}/${BASE}-${SUFFIX}.epub"
+fi
+
+[ ! -f "$UNIFONT_SRC" ] && die "Unifont 字体不存在: $UNIFONT_SRC"
+
+WORKDIR=$(mktemp -d /tmp/epub2unifont.XXXXXX)
+trap "rm -rf '$WORKDIR'" EXIT
+
+echo "处理: $(basename "$SRC")"
+echo "输出: ${DST}"
+
+cd "$WORKDIR"
+unzip -o -q "$SRC" || die "解压失败: $SRC"
+
+OEBPS_DIR=$(find . -maxdepth 2 -name "content.opf" -not -path "*/META-INF/*" | head -1 | xargs dirname 2>/dev/null)
+[ -z "$OEBPS_DIR" ] && die "找不到 content.opf"
+OEBPS_DIR="${OEBPS_DIR#./}"
+
+echo "  OEBPS 目录: ${OEBPS_DIR}"
+
+mkdir -p "${OEBPS_DIR}/Fonts"
+cp "$UNIFONT_SRC" "${OEBPS_DIR}/Fonts/unifont.otf"
+
+FONT_ENTRY='    <item id="font_unifont" media-type="application/vnd.ms-opentype" href="Fonts/unifont.otf"/>'
+sed -i "s|</manifest>|${FONT_ENTRY}\n</manifest>|" "${OEBPS_DIR}/content.opf"
+
+css_count=0
+while IFS= read -r css; do
+    css_count=$((css_count + 1))
+
+    css_rel=$(realpath --relative-to="$(dirname "$css")" "${OEBPS_DIR}/Fonts/unifont.otf" 2>/dev/null)
+    echo "  CSS: ${css#./}"
+
+    sed -i "1i\\
+@font-face {\\
+\tfont-family: \"Unifont\";\\
+\tsrc: url(\"${css_rel}\") format(\"opentype\");\\
+\tfont-weight: normal;\\
+\tfont-style: normal;\\
+}\\
+" "$css"
+
+    sed -i 's/font-family:[^;}]*;/font-family: "Unifont";/g' "$css"
+
+    if ! grep -q 'body.*{.*font-family' "$css"; then
+        sed -i 's/^body{/body{font-family: "Unifont";/' "$css"
+        sed -i 's/^body {/body {font-family: "Unifont";/' "$css"
+    fi
+done < <(find "${OEBPS_DIR}" -name "*.css")
+
+echo "  CSS 已处理: ${css_count} 个, 字体: $(du -h "${OEBPS_DIR}/Fonts/unifont.otf" | cut -f1)"
+
+echo -n "  打包中... "
+TMP_EPUB="${WORKDIR}/output.epub"
+zip -0 -X -q "$TMP_EPUB" mimetype
+zip -r -X -9 -q "$TMP_EPUB" . -x mimetype output.epub
+echo "完成"
+
+cp "$TMP_EPUB" "$DST"
+echo "完成 ($(du -h "$DST" | cut -f1))"
