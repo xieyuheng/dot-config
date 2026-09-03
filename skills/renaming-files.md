@@ -7,3 +7,7 @@
 - 如果找不到，可以没有 <author>。
 - <year> <title> <author> 都可以包含中文。
 - <year> <title> <author> 都用 lisp-case。
+
+如果实在没法解析书籍的内容，
+也可以利用书籍的已有标题，
+来做重命名。
