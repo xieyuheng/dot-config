@@ -3,10 +3,13 @@
 的文档类文件（pdf djvu epub ps），
 改为用 <year>-<title>--<author>.<ext> 格式命名。
 
-- 你可以读文件的内容来提取 <year> <title> <author> 信息。
-- 如果找不到，可以没有 <author>。
+- 如果找不到，可以没有 <author> 或 <year>。
 - <year> <title> <author> 都可以包含中文。
 - <year> <title> <author> 都用 lisp-case。
+
+---
+
+你可以读文件的内容来提取 <year> <title> <author> 信息。
 
 如果实在没法解析书籍的内容，
 也可以利用书籍的已有标题，
